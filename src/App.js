@@ -1,20 +1,28 @@
-import React from 'react'
-import CardList from './CardList';
+import React, { Component } from 'react'
 import AddRecipe from './AddRecipe';
-import Recipes from './Recipes';
+import CardList from './CardList';
+import { Recipes } from './Recipes';
 
-const App = () => {
-    return (
-        <div className="mw9 center ph3-ns">
-            <div className="cf ph2-ns">
-                <AddRecipe />
-                <div className="fl w-50 w-10-ns pa2"></div>
-                <CardList Recipes={Recipes}/>
-                <div className="fl w-50 w-10-ns pa2"></div>
+class App extends Component {
+    constructor() {
+        super();
+        this.state = {
+            recipes: Recipes,
+        }
+    }
+    render() {
+        return (
+            <div className="mw9 center ph3-ns">
+                <div className="cf ph2-ns">
+                    <AddRecipe Recipes={this.state.recipes}/>
+                    <div className="fl w-50 w-10-ns pa2"></div>
+                    <CardList Recipes={this.state.recipes}/>
+                    <div className="fl w-50 w-10-ns pa2"></div>
+                </div>
             </div>
-        </div>
-    )
-   
+        )
+    }
+    
 }
 
 export default App

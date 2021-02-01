@@ -1,4 +1,5 @@
 import React, { Component }from 'react';
+// import { TRecipe, Recipes } from './Recipes'
 
 class AddRecipe extends Component {
     constructor(props){
@@ -9,6 +10,7 @@ class AddRecipe extends Component {
             ingredients: [],
             website: '',
         }
+        //this.addButton = this.addButton.bind(this);
         
     }
 
@@ -30,6 +32,21 @@ class AddRecipe extends Component {
             });
         }
     };
+
+    //needs work
+    addButton = () => {
+        // event.preventDefault()
+            this.props.Recipes.push({
+                id: 5,
+                name: 'wraps',
+                ingredients: ['Kidney beans', 'Sweet potato', 'Mushrooms', 'Courgette', 'Onion', 'Garlic', 'Chopped tomatoes', 'Rice', 'Cumin',],
+                img: `https://picsum.photos/id/5/200/200`,
+                link: '#',
+            })
+            console.log(this.props.Recipes);
+        
+    }
+    
 
     render() {
         return (
@@ -55,12 +72,13 @@ class AddRecipe extends Component {
                     value={this.state.website} 
                     onChange={event => this.change(event)}
                     />
+                    <p
+                    // type="submit"
+                    name="addbutton"
+                    onClick={event => this.addButton()}
+                    >Add recipe</p>
 
                 </form>
-                {/* { if (this.state.ingredients.length > 0) {
-                    <p>Ingredients</p>
-                    }
-                } */}
                 
                 <ul>
                     {this.state.ingredients.map((item, i) => (
@@ -72,4 +90,5 @@ class AddRecipe extends Component {
     }
 
 }
+
 export default AddRecipe;

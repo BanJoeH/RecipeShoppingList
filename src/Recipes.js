@@ -1,4 +1,4 @@
-const Recipes = [
+export const Recipes = [
     {
         id: 1,
         name: 'Lasagne',
@@ -29,4 +29,13 @@ const Recipes = [
     },
     
 ]
-export default Recipes;
+//needs work
+export function TRecipe(name, ingredient, ingredients, link) {
+    Recipes.unshift({
+        id : Recipes.length+1,
+        name : name,
+        ingredients : ingredients,
+        link : link
+    });
+}
+
