@@ -14,7 +14,9 @@ class App extends Component {
         return (
             <div className="mw9 center ph3-ns">
                 <div className="cf ph2-ns">
-                    <AddRecipe Recipes={this.state.recipes}/>
+                    <AddRecipe 
+                    Recipes={this.state.recipes}
+                    />
                     <div className="fl w-50 w-10-ns pa2"></div>
                     <CardList Recipes={this.state.recipes}/>
                     <div className="fl w-50 w-10-ns pa2"></div>

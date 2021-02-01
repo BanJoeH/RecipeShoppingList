@@ -10,7 +10,6 @@ class AddRecipe extends Component {
             ingredients: [],
             website: '',
         }
-        //this.addButton = this.addButton.bind(this);
         
     }
 
@@ -35,15 +34,19 @@ class AddRecipe extends Component {
 
     //needs work
     addButton = () => {
-        // event.preventDefault()
             this.props.Recipes.push({
                 id: 5,
-                name: 'wraps',
-                ingredients: ['Kidney beans', 'Sweet potato', 'Mushrooms', 'Courgette', 'Onion', 'Garlic', 'Chopped tomatoes', 'Rice', 'Cumin',],
-                img: `https://picsum.photos/id/5/200/200`,
-                link: '#',
+                name: this.state.recipeName,
+                ingredients: this.state.ingredients,
+                img: `https://picsum.photos/id/5/200/200`, //will make this dynamic later
+                link: '#', //will make this dynamic later
             })
-            console.log(this.props.Recipes);
+            this.setState({
+                recipeName: '',
+                ingredient: '',
+                ingredients: [],
+                website: '',
+            })
         
     }
     
@@ -75,7 +78,7 @@ class AddRecipe extends Component {
                     <p
                     // type="submit"
                     name="addbutton"
-                    onClick={event => this.addButton()}
+                    onClick={event => this.addButton(event)}
                     >Add recipe</p>
 
                 </form>
